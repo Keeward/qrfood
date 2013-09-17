@@ -1,8 +1,10 @@
+// on submit, encodes data and send them back to the server
 function qrSubmit() {
 	window.location='/'+getQRString($('#meal_name').val(), $('#foursquare_id').val(), $('#weight').val(), $('#calories').val(), $('#saturated_fat').val(), $('#unsaturated_fat').val(), $('#sodium').val(), $('#carbohydrates').val(), $('#fiber').val(), $('#sugar').val(), $('#protein').val(),  $('#cholesterol').val());
 	return(false);
 }
 
+// fill the form with posted data
 function setQRValues(meal_name, foursquare_id, weight, calories, saturated_fat, unsaturated_fat, sodium, carbohydrates, fiber, sugar, protein, cholesterol){
 	$('#meal_name').val(meal_name);
 	$('#foursquare_id').val(foursquare_id);
@@ -18,6 +20,7 @@ function setQRValues(meal_name, foursquare_id, weight, calories, saturated_fat, 
 	$('#cholesterol').val(cholesterol);
 }
 
+// converts 2 bytes int into 2 characters string
 function int2txt(input){
 	tmp='';
 	if(input>0 && input<65536){
@@ -30,12 +33,13 @@ function int2txt(input){
 	return(tmp);
 }
 
+// encode data
 function getQRString(meal_name, foursquare_id, weight, calories, saturated_fat, unsaturated_fat, sodium, carbohydrates, fiber, sugar, protein, cholesterol){
 	tmp = Base64.encode(int2txt(weight) + int2txt(calories) + int2txt(saturated_fat) + int2txt(unsaturated_fat) + int2txt(sodium) + int2txt(carbohydrates) + int2txt(fiber) + int2txt(sugar) + int2txt(protein) + int2txt(cholesterol) + encode_fs(foursquare_id) + Base64._utf8_encode(meal_name));
 	return(tmp);
 }
 
-
+// encode foursquare id
 function encode_fs(input){
 	tmp=''
 	if(input.length!=24){

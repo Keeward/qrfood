@@ -3,8 +3,8 @@
 	$qr=false;
 	$meal_name='QRFood - QRcode generator that contains meals nutritional informations for your menus';
 
-	
-	function hex2str($hex)
+	// converts string to hexadecimal string (for foursquare id)
+	function str2hex($hex)
 	{
 		$tmp='';
 		for ($i = 0; $i < strlen($hex); $i++) {
@@ -17,11 +17,16 @@
 	if(strlen($_SERVER["REQUEST_URI"])>1 && strpos($_SERVER["REQUEST_URI"],'/index.php')===false){
 		$qr=true;
 		
+		// decode base64 data
 		$data= base64_decode(substr($_SERVER["REQUEST_URI"],1));
+		
+		// name is after 32nd byte
 		$meal_name = substr($data,32);
-		$foursquare_id=hex2str(substr($data,20,12));
 		
+		// foursquare id is between byte 20 and byte 32
+		$foursquare_id=str2hex(substr($data,20,12));
 		
+		// get all int values
 		$weight			=	ord(substr($data,0,1))*256+ord(substr($data,1,1));
 		$calories		=	ord(substr($data,2,1))*256+ord(substr($data,3,1));
 		$saturated_fat		=	ord(substr($data,4,1))*256+ord(substr($data,5,1));
@@ -33,7 +38,7 @@
 		$protein		=	ord(substr($data,16,1))*256+ord(substr($data,17,1));
 		$cholesterol		=	ord(substr($data,18,1))*256+ord(substr($data,19,1));
 		
-		
+		// create QRCode with phpqrcode
 		$PHPQRCODE_DIR = 'phpqrcode';
 		
 		//set it to writable location, a place for temp generated PNG files
@@ -53,12 +58,7 @@
 		
 		//$filename2 = $PNG_TEMP_DIR.'QRFood_'.md5($data.'|'.$errorCorrectionLevel.'|'.$matrixPointSize).'.png';
 		//QRcode::png($data, $filename2, $errorCorrectionLevel, $matrixPointSize, 2);
-		
-		
-		
-		
-		//4ac759c9f964a520eab620e3
-		
+				
 		
 	}
 
