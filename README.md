@@ -47,7 +47,7 @@ In order to decode a QRFood, you just need to:
 Installation
 ------------
 - Download [PHPQRCode](http://phpqrcode.sourceforge.net/) and copy it into the QFood home directory
-- Allow apache server (*www-data*) to write into the *phpqrcode/temp/* and *phpqrcode/cache/* directories
+- Allow apache server (www-data) to write into the *phpqrcode/temp/* and *phpqrcode/cache/* directories
 - Add the following to your Apache VirtualHost configuration:
 
 ```
