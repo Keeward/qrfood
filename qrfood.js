@@ -18,8 +18,20 @@ function setQRValues(meal_name, foursquare_id, weight, calories, saturated_fat, 
 	$('#cholesterol').val(cholesterol);
 }
 
+function int2txt(input){
+	tmp='';
+	if(input>0 && input<65536){
+		tmp=String.fromCharCode(input / 256)+String.fromCharCode(input % 256)
+	}else if(input>=65536){
+		tmp=String.fromCharCode(255)+String.fromCharCode(255);
+	}else{
+		tmp=String.fromCharCode(0)+String.fromCharCode(0);
+	}
+	return(tmp);
+}
+
 function getQRString(meal_name, foursquare_id, weight, calories, saturated_fat, unsaturated_fat, sodium, carbohydrates, fiber, sugar, protein, cholesterol){
-	tmp = Base64.encode(String.fromCharCode(weight>0&&weight<256?weight:0, calories>0&&calories<256?calories:0, saturated_fat>0&&saturated_fat<256?saturated_fat:0, unsaturated_fat>0&&unsaturated_fat<256?unsaturated_fat:0, sodium>0&&sodium<256?sodium:0, carbohydrates>0&&carbohydrates<256?carbohydrates:0, fiber>0&&fiber<256?fiber:0, sugar>0&&sugar<256?sugar:0, protein>0&&protein<256?protein:0, cholesterol>0&&cholesterol<256?cholesterol:0) + encode_fs(foursquare_id) + Base64._utf8_encode(meal_name));
+	tmp = Base64.encode(int2txt(weight) + int2txt(calories) + int2txt(saturated_fat) + int2txt(unsaturated_fat) + int2txt(sodium) + int2txt(carbohydrates) + int2txt(fiber) + int2txt(sugar) + int2txt(protein) + int2txt(cholesterol) + encode_fs(foursquare_id) + Base64._utf8_encode(meal_name));
 	return(tmp);
 }
 

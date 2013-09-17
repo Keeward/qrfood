@@ -18,20 +18,20 @@
 		$qr=true;
 		
 		$data= base64_decode(substr($_SERVER["REQUEST_URI"],1));
-		$meal_name = substr($data,22);
-		$foursquare_id=hex2str(substr($data,10,12));
+		$meal_name = substr($data,32);
+		$foursquare_id=hex2str(substr($data,20,12));
 		
 		
-		$weight			=	ord(substr($data,0,1));
-		$calories		=	ord(substr($data,1,1));
-		$saturated_fat		=	ord(substr($data,2,1));
-		$unsaturated_fat	=	ord(substr($data,3,1));
-		$sodium			=	ord(substr($data,4,1));
-		$carbohydrates		=	ord(substr($data,5,1));
-		$fiber			=	ord(substr($data,6,1));
-		$sugar			=	ord(substr($data,7,1));
-		$protein		=	ord(substr($data,8,1));
-		$cholesterol		=	ord(substr($data,9,1));
+		$weight			=	ord(substr($data,0,1))*256+ord(substr($data,1,1));
+		$calories		=	ord(substr($data,2,1))*256+ord(substr($data,3,1));
+		$saturated_fat		=	ord(substr($data,4,1))*256+ord(substr($data,5,1));
+		$unsaturated_fat	=	ord(substr($data,6,1))*256+ord(substr($data,7,1));
+		$sodium			=	ord(substr($data,8,1))*256+ord(substr($data,9,1));
+		$carbohydrates		=	ord(substr($data,10,1))*256+ord(substr($data,11,1));
+		$fiber			=	ord(substr($data,12,1))*256+ord(substr($data,13,1));
+		$sugar			=	ord(substr($data,14,1))*256+ord(substr($data,15,1));
+		$protein		=	ord(substr($data,16,1))*256+ord(substr($data,17,1));
+		$cholesterol		=	ord(substr($data,18,1))*256+ord(substr($data,19,1));
 		
 		
 		$PHPQRCODE_DIR = 'phpqrcode';
