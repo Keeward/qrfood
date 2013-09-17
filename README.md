@@ -65,3 +65,13 @@ Example
 -------
 
 [Salade saveur du Lézard Café](http://qr.kwrd.co/AZABaQADABcCJgAOAAMAAwALAFRKx1nJ+WSlIOq2IONTYWxhZGUgc2F2ZXVyIGR1IEzDqXphcmQgQ2Fmw6k=)
+
+License
+-------
+
+The QRFood code is free to use and distribute, under the [LGPL license](https://raw.github.com/Keeward/qrfood/master/LICENSE).
+
+rsvp uses third-party libraries:
+
+* [PHPQRCode](http://phpqrcode.sourceforge.net/), licensed under the [LGPL License](http://www.gnu.org/licenses/lgpl.html),
+* [TwitterBootstrap](http://twitter.github.com/bootstrap/), licensed under the [Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0),
