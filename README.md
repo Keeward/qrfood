@@ -21,6 +21,8 @@ So even without a specific application, the QRCode is self-explanatory.
 
 Because it stores a URL, special characters have been removed with Base64 encoding.
 
+Because all the data is stored within the QR-code (QRCodes can contain up to 3KB) you don't need any internet connection.
+
 QRFood stores these:
 - meal_name (unlimited UTF-8 string),
 - foursquare_id (12 bytes),
