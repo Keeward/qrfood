@@ -26,16 +26,16 @@ Because all the data is stored within the QR-code (QRCodes can contain up to 3KB
 QRFood stores these:
 - meal_name (unlimited UTF-8 string),
 - foursquare_id (12 bytes),
-- weight (2 bytes), 
-- calories (2 bytes),
-- saturated_fat (2 bytes),
-- unsaturated_fat (2 bytes),
-- sodium (2 bytes),
-- carbohydrates (2 bytes),
-- fiber (2 bytes),
-- sugar (2 bytes),
-- protein (2 bytes),
-- cholesterol (2 bytes).
+- weight (2 bytes unsigned int), 
+- calories (2 bytes unsigned int),
+- saturated_fat (2 bytes unsigned int),
+- unsaturated_fat (2 bytes unsigned int),
+- sodium (2 bytes unsigned int),
+- carbohydrates (2 bytes unsigned int),
+- fiber (2 bytes unsigned int),
+- sugar (2 bytes unsigned int),
+- protein (2 bytes unsigned int),
+- cholesterol (2 bytes unsigned int).
  
 Decoding
 --------
