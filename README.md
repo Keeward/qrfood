@@ -42,13 +42,13 @@ Decoding
 In order to decode a QRFood, you just need to:
 - get the *REQUEST_URI* (after http://qr.kwrd.com/)
 - decode Base64
-- the first 10 bytes are the numeric values, in this order: weight, calories, saturated_fat, unsaturated_fat, sodium, carbohydrates, fiber, sugar, protein, cholesterol
+- the first 20 bytes are the numeric values, in this order: weight, calories, saturated_fat, unsaturated_fat, sodium, carbohydrates, fiber, sugar, protein, cholesterol
 - then 12 bytes for Foursquare id
 - then utf-8 meal name string
 
 Installation
 ------------
-- Download [PHPQRCode](http://phpqrcode.sourceforge.net/) and copy it into the QFood home directory
+- Download [PHPQRCode](http://phpqrcode.sourceforge.net/) and copy it into the QRFood home directory
 - Allow apache server (www-data) to write into the *phpqrcode/temp/* and *phpqrcode/cache/* directories
 - Add the following to your Apache VirtualHost configuration:
 
